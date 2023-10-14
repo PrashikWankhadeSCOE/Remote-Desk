@@ -2,10 +2,8 @@ import java.io.DataInputStream;
 import java.io.*;
 import java.net.*;
 import java.awt.*;
-import javax.swing.*;
-import javax.xml.crypto.Data;
+import java.awt.Rectangle;
 
-import javafx.scene.shape.Rectangle;
 
 public class InitConnection {
     ServerSocket socket = null;
@@ -37,14 +35,14 @@ public class InitConnection {
                 password = new DataInputStream(sc.getInputStream());
                 verify = new DataOutputStream(sc.getOutputStream());
 
-                String password = password.readUTF();
+                String psword = password.readUTF();
 
-                if(password.equals(value1)){
+                if(psword.equals(value1)){
 
                     verify.writeUTF("Valid");
                     verify.writeUTF(width);
                     verify.writeUTF(height);
-                    new SendScreen(sc,robot,rectangle);
+                    new SendScreen(sc, robot, rectangle);
                     new ReceiveEvents(sc,robot);
                 }
                 else{

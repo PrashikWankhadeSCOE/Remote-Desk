@@ -14,13 +14,13 @@ public class SendScreen extends Thread {
     boolean continueLoop = true;
     OutputStream oos = null;
 
-    public SendScreen(Socket socket,Robot robot, Rectangle rect){
+    public SendScreen(Socket socket,Robot robot2, Rectangle rectangle){
         this.socket = socket;
-        this.robot = robot;
-        rectangle = rect;
+        this.robot = robot2;
+        this.rectangle = rectangle;
         start();
-
     }
+    
     public void run(){
         try{
             oos=socket.getOutputStream();
